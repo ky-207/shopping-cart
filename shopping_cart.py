@@ -31,9 +31,13 @@ products = [
 # TODO: write some Python code here to produce the desired output
 
 # capturing user inputs
-product_id = input("Please input a product identifier: ")
-matching_products = [p for p in products if str(p["id"]) == str(product_id)] # need to convert both to string so that they can be compared
-matching_product = matching_products[0]
-print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+while True:
+    product_id = input("Please input a product identifier: ")
+    if product_id == "DONE":
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(product_id)] # need to convert both to string so that they can be compared
+        matching_product = matching_products[0]
+        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 # info display / output
