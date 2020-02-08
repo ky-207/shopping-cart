@@ -38,9 +38,10 @@ while True:
     selected_id = input("Please input a product identifier: ")
     if selected_id == "DONE":
         break
-    else:
+    elif [p for p in products if str(p["id"]) == str(selected_id)]: # validating product identifier
         selected_ids.append(selected_id)
-        #print("Hey, are you sure that product identifier is correct? Please try again!")
+    else:
+        print("Hey, are you sure that product identifier is correct? Please try again!")
 
 # info display / output
 
