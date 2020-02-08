@@ -32,18 +32,24 @@ products = [
 
 # capturing user inputs
 
-total_price = 0 # to initialize the variable
+total_price = 0 # to define the variable
+selected_ids = [] # to define the list
 
 while True:
-    product_id = input("Please input a product identifier: ")
-    if product_id == "DONE":
+    selected_id = input("Please input a product identifier: ")
+    if selected_id == "DONE":
         break
     else:
-        matching_products = [p for p in products if str(p["id"]) == str(product_id)] # need to convert both to string so that they can be compared
-        matching_product = matching_products[0]
-        total_price = total_price + matching_product["price"] # to keep a running total of the shopping cart
-        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+        selected_ids.append(selected_id)
 
 # info display / output
+
+# print(selected_ids)
+
+for selected_id in selected_ids:
+    matching_products = [p for p in products if str(p["id"]) == str(selected_id)] # need to convert both to string so that they can be compared
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"] # to keep a running total of the shopping cart
+    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 print("TOTAL PRICE: " + str(total_price))
