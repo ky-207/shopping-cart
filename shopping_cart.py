@@ -1,6 +1,7 @@
 # shopping_cart.py
 
 #from pprint import pprint
+from datetime import datetime, date, time
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -27,12 +28,10 @@ products = [
 
 # print(products)
 # pprint(products)
-
 # TODO: write some Python code here to produce the desired output
-
 # capturing user inputs
 
-total_price = 0 # to define the variable
+subtotal = 0 # to define the variable
 selected_ids = [] # to define the list
 
 while True:
@@ -41,15 +40,39 @@ while True:
         break
     else:
         selected_ids.append(selected_id)
+        #print("Hey, are you sure that product identifier is correct? Please try again!")
 
 # info display / output
 
-# print(selected_ids)
+## print store name
+print("---------------------------------")
+print("MARKET BASKET")
+print("www.shopmarketbasket.com")
+print("---------------------------------")
+
+## print current date and time
+## source: tecadmin.net/get-current-date-time-python/
+current_datetime = datetime.now()
+print("CHECKOUT AT: " + current_datetime.strftime("%Y-%m-%d %I:%M %p"))
+print("---------------------------------")
+
+## print selected ids
+print("SELECTED PRODUCTS:")
 
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)] # need to convert both to string so that they can be compared
     matching_product = matching_products[0]
-    total_price = total_price + matching_product["price"] # to keep a running total of the shopping cart
-    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+    subtotal = subtotal + matching_product["price"] # to keep a running total of the shopping cart
+    price_usd = " (${0:.2f})".format(matching_product["price"])
+    print(" ... " + matching_product["name"] + price_usd)
+print("---------------------------------")
 
-print("TOTAL PRICE: " + str(total_price))
+## print total price
+print("SUBTOTAL: ${0:.2f}".format(subtotal))
+tax = subtotal * .0875 # calculating sales tax
+print("TAX: ${0:.2f}".format(tax))
+total_price = subtotal + tax # calculating total after tax
+print("TOTAL: ${0:.2f}".format(total_price))
+print("---------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("---------------------------------")
