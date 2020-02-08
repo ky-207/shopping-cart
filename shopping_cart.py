@@ -31,6 +31,9 @@ products = [
 # TODO: write some Python code here to produce the desired output
 
 # capturing user inputs
+
+total_price = 0 # to initialize the variable
+
 while True:
     product_id = input("Please input a product identifier: ")
     if product_id == "DONE":
@@ -38,6 +41,9 @@ while True:
     else:
         matching_products = [p for p in products if str(p["id"]) == str(product_id)] # need to convert both to string so that they can be compared
         matching_product = matching_products[0]
+        total_price = total_price + matching_product["price"] # to keep a running total of the shopping cart
         print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 # info display / output
+
+print("TOTAL PRICE: " + str(total_price))
