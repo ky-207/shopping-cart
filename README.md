@@ -5,16 +5,34 @@
 
 ## Installation
 
-Clone or download from [GitHub Sorce](https://github.com/YOUR_USERNAME/shopping-cart), then navigate into the project repository:
+Clone or download from [GitHub Source](https://github.com/kristyyip/shopping-cart) onto your computer, choosing a familiar download location like the Desktop. 
+
+Then navigate into the project repository from the command-line:
 
 ```sh
-cd shopping-cart
+cd ~/Desktop/shopping-cart
+```
+
+## Setup
+
+Create and activate a new Anaconda virtual environment from the command-line:
+
+```sh
+conda create -n shopping-env python=3.7 # (first time only)
+conda activate shopping-env
+```
+
+From inside the virtual environment, install package dependencies:
+
+```sh
+pip install python-dotenv
+pip install sendgrid==6.0.5
 ```
 
 ## Usage
 
 Run the program:
 
-```py
+```sh
 python shopping_cart.py
 ```
