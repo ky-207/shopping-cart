@@ -1,7 +1,6 @@
 # shopping-cart project
 
-[Project Description]
-(https://github.com/prof-rossetti/intro-to-python/blob/master/projects/shopping-cart/README.md)
+[Project Description](https://github.com/prof-rossetti/intro-to-python/blob/master/projects/shopping-cart/README.md)
 
 ## Installation
 
