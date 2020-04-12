@@ -46,3 +46,16 @@ Run the program:
 ```sh
 python shopping_cart.py
 ```
+
+## Testing
+
+Install the `pytest` package, perhaps within a virtual environment:
+
+```sh
+pip install pytest
+```
+
+Run tests:
+
+```py
+pytest
