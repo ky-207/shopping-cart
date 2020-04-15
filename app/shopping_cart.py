@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+load_dotenv()
+
 # simplify USD formatting
 def to_usd(my_price):
     """
@@ -130,12 +132,10 @@ if __name__ == "__main__":
             # format the totals
             subtotal = to_usd(subtotal)
             tax = to_usd(tax)
-            total_price = to_usd(total_price)
+            total_price = to_usd(total_price)  
 
-            load_dotenv()  
-
-            SENDGRID_API_KEY = os.environ.get("SENDGRID_API", "OOPS, please set env var called 'SENDGRID_API_KEY'")
-            MY_ADDRESS = os.environ.get("MY_EMAIL", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
+            SENDGRID_API_KEY = os.environ.get("SENDGRID_API", "OOPS, please set env var called 'SENDGRID_API'")
+            MY_ADDRESS = os.environ.get("MY_EMAIL", "OOPS, please set env var called 'MY_EMAIL'")
 
             client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
             print("CLIENT:", type(client))
