@@ -1,6 +1,10 @@
 # shopping-cart/test/shopping_cart_test.py
 
-from app.shopping_cart import to_usd, print_selection
+from app.shopping_cart import TAX_RATE, to_usd, print_selection
+
+def test_tax_rate():
+    assert(TAX_RATE) == 0.0875
+
 
 def test_to_usd():
     price = 12.5

@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+TAX_RATE = .0875 # allows any changes to tax rate to apply throughout the code
+
 # simplify USD formatting
 def to_usd(my_price):
     """
@@ -118,7 +120,7 @@ if __name__ == "__main__":
 
             ## print total price
             print(f"SUBTOTAL: {to_usd(subtotal)}")
-            tax = subtotal * .0875 # calculating sales tax
+            tax = subtotal * TAX_RATE # calculating sales tax
             print(f"TAX: {to_usd(tax)}")
             total_price = subtotal + tax # calculating total after tax
             print(f"TOTAL: {to_usd(total_price)}")
@@ -139,7 +141,7 @@ if __name__ == "__main__":
             timestamp = current_datetime.strftime("%B %d, %Y at %I:%M %p")
 
             # calculate tax and total price
-            tax = subtotal * .0875
+            tax = subtotal * TAX_RATE
             total_price = subtotal + tax
 
             # format the totals
