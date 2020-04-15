@@ -1,6 +1,6 @@
 # shopping-cart/test/shopping_cart_test.py
 
-from app.shopping_cart import to_usd
+from app.shopping_cart import to_usd, print_selection
 
 def test_to_usd():
     price = 12.5
@@ -18,3 +18,15 @@ def test_to_usd():
 
     # it should display thousands separators
     assert to_usd(1234567890) == "$1,234,567,890.00"
+
+def test_print_selection():
+    products = [
+        {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
+        {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99}
+    ]
+
+    selected_ids = ["1", "2"]
+    subtotal = 0
+
+    subtotal = print_selection(selected_ids, products, subtotal, None)
+    assert subtotal == 8.49
